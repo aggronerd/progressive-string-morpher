@@ -1,91 +1,91 @@
-import Transition from "./Transition";
+import Transition from './Transition';
 
 describe('Transition', () => {
-    let transitionStep: Transition;
-    let initialString: string;
-    let targetString: string;
+  let transitionStep: Transition;
+  let initialString: string;
+  let targetString: string;
 
-    const prepareTransitionStep = () => {
-        transitionStep = new Transition(initialString, targetString);
-        return transitionStep;
-    };
+  const prepareTransitionStep = () => {
+    transitionStep = new Transition(initialString, targetString);
+    return transitionStep;
+  };
 
-    beforeEach(() => {
-        initialString = 'Listen';
+  beforeEach(() => {
+    initialString = 'Listen';
+    targetString = 'Silent';
+  });
+
+  describe('currentIndexToOrder', () => {
+    const subject = () => prepareTransitionStep().currentIndexToOrder;
+
+    it('matches expectation', () => {
+      expect(subject()).toEqual([2, 1, 0, 5, 3, 4]);
+    });
+
+    describe('with duplicate characters', () => {
+      beforeEach(() => {
+        initialString = 'aakBa';
+        targetString = 'AkbAa';
+      });
+
+      it('equals expected', () => {
+        expect(subject()).toEqual([0, 3, 1, 2, 4]);
+      });
+    });
+
+    describe('with none existent characters in to', () => {
+      beforeEach(() => {
+        initialString = 'Li st en';
         targetString = 'Silent';
+      });
+
+      it('equals expected', () => {
+        expect(subject()).toEqual([2, 1, null, 0, 5, null, 3, 4]);
+      });
     });
 
-    describe('currentIndexToOrder', () => {
-        const subject = () => prepareTransitionStep().currentIndexToOrder;
+    describe('with none existent characters in from', () => {
+      beforeEach(() => {
+        initialString = 'Listen';
+        targetString = 'Si-l-ent';
+      });
 
-        it('matches expectation', () => {
-            expect(subject()).toEqual([2, 1, 0, 5, 3, 4])
-        });
+      it('equals expected', () => {
+        expect(subject()).toEqual([3, 1, 0, 7, 5, 6]);
+      });
+    });
+  });
 
-        describe('with duplicate characters', () => {
-            beforeEach(() => {
-                initialString = 'aakBa';
-                targetString = 'AkbAa';
-            });
+  describe('next', () => {
+    const subject = () => prepareTransitionStep().next();
 
-            it('equals expected', () => {
-                expect(subject()).toEqual([0, 3, 1, 2, 4])
-            })
-        });
+    describe('basic case', () => {
+      it('downcase case first', () => {
+        subject();
 
-        describe('with none existent characters in to', () => {
-            beforeEach(() => {
-                initialString = 'Li st en';
-                targetString = 'Silent';
-            });
+        expect(transitionStep.getCurrentString()).toEqual('listen');
+      });
 
-            it('equals expected', () => {
-                expect(subject()).toEqual([2, 1, null, 0, 5, null, 3, 4])
-            })
-        });
+      it('step 2', () => {
+        initialString = 'listen';
 
-        describe('with none existent characters in from', () => {
-            beforeEach(() => {
-                initialString = 'Listen';
-                targetString = 'Si-l-ent';
-            });
+        subject();
 
-            it('equals expected', () => {
-                expect(subject()).toEqual([3, 1, 0, 7, 5, 6])
-            })
-        })
+        expect(transitionStep.getCurrentString()).toEqual('ilsten');
+      });
     });
 
-    describe('next', () => {
-        const subject = () => prepareTransitionStep().next();
+    describe('Insertion of special character in middle', () => {
+      beforeEach(() => {
+        initialString = 'hypenjones';
+        targetString = 'hypen-jones';
+      });
 
-        describe('basic case', () => {
-            it('downcase case first', () => {
-                subject();
+      it('Adds the hypen', () => {
+        subject();
 
-                expect(transitionStep.getCurrentString()).toEqual('listen');
-            });
-
-            it('step 2', () => {
-                initialString = 'listen';
-
-                subject();
-
-                expect(transitionStep.getCurrentString()).toEqual('ilsten');
-            })
-        });
-
-        describe('Insertion of special character in middle', () => {
-            beforeEach(() => {
-                initialString = 'hypenjones';
-                targetString = 'hypen-jones'
-            });
-
-            it('Adds the hypen', () => {
-                subject();
-
-                expect(transitionStep.getCurrentString()).toEqual('hypen-jones');
-            })
-        })
-    })
+        expect(transitionStep.getCurrentString()).toEqual('hypen-jones');
+      });
+    });
+  });
 });
