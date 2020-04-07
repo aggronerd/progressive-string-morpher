@@ -9,7 +9,8 @@
     "test": "jest src/**",
     "integration-test": "jest integration.test.js",
     "lint": "eslint src/**.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "all": "npm run test && npm run build && npm run lint && npm run integration-test"
   },
   "repository": {
     "type": "git",

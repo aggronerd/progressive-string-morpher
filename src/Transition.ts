@@ -16,7 +16,6 @@ function stageLowerCase(transition: Transition): boolean {
   return true;
 }
 
-
 /**
  * Performs a bubble sort on the characters to match the order of the target string. Will also
  * remove characters it encounters which do not have a sorting value - this will occur if the
@@ -96,7 +95,8 @@ function stageInsertMissingCharacters(transition: Transition): boolean {
   return true;
 }
 
-const sortedTransitionPhases: Array<(transition: Transition) => boolean> = [
+// Defines functions in order that are applied to the string in order to transition
+const orderedTransitionPhases: Array<(transition: Transition) => boolean> = [
   stageLowerCase,
   stageBubbleSort,
   stageInsertMissingCharacters,
@@ -220,8 +220,8 @@ export default class Transition {
    * @returns true when done and not changes have been made to the current string
    */
   next(): boolean {
-    for (; this.phase < sortedTransitionPhases.length; this.phase += 1) {
-      if (!sortedTransitionPhases[this.phase](this)) {
+    for (; this.phase < orderedTransitionPhases.length; this.phase += 1) {
+      if (!orderedTransitionPhases[this.phase](this)) {
         return false;
       }
       this.resetScanningIndex();
