@@ -1,5 +1,7 @@
 ## Description
 
+_Provide a link to the issue this resolves_
+
 _Describe here what your PR does_
 
 ## Checklist
