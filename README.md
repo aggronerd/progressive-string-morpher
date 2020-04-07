@@ -4,7 +4,7 @@ This was initially used to animate the transition steps between anagrams, howeve
 
 ## Examples
 
-```typescript
+```javascript
 const morpher = require('progressive-string-morpher');
 
 const transition = morpher.stringMorphTransition("More", "Rome");
