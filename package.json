@@ -1,0 +1,31 @@
+{
+  "name": "progressive-string-morpher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "prepublish": "tsc",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aggronerd/progressive-string-morpher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aggronerd/progressive-string-morpher/issues"
+  },
+  "homepage": "https://github.com/aggronerd/progressive-string-morpher#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "babel-jest": "^25.2.6",
+    "jest": "^25.2.7",
+    "typescript": "^3.8.3"
+  }
+}
