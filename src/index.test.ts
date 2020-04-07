@@ -1,10 +1,10 @@
-import {calculateTransitionSteps} from "./index";
+import {calculateAll} from "./index";
 
 let targetString: string;
 let initialString: string;
 
-describe('calculateTransitionSteps', () => {
-    const subject = () => calculateTransitionSteps(initialString, targetString);
+describe('calculateAll', () => {
+    const subject = () => calculateAll(initialString, targetString);
 
     describe('Both empty strings', () => {
         beforeEach(() => {
@@ -66,6 +66,17 @@ describe('calculateTransitionSteps', () => {
         beforeEach(() => {
             initialString = 'This is not an anagram';
             targetString = 'It certainly is not!'
+        });
+
+        it('returns expected', () => {
+            expect(subject()).toMatchSnapshot()
+        });
+    });
+
+    describe('Rome example', () => {
+        beforeEach(() => {
+            initialString = 'More';
+            targetString = 'Rome!'
         });
 
         it('returns expected', () => {

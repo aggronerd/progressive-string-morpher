@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "prepublish": "tsc",
   "scripts": {
-    "test": "jest",
+    "test": "jest src/**",
+    "integration-test": "jest integration.test.js",
     "build": "tsc"
   },
   "repository": {

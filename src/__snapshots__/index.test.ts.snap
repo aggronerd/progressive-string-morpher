@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calculateTransitionSteps Not an anagram! returns expected 1`] = `
+exports[`calculateAll Not an anagram! returns expected 1`] = `
 Array [
   "This is not an anagram",
   "this is not an anagram",
@@ -49,5 +49,17 @@ Array [
   "it certainly is not",
   "it certainly is not!",
   "It certainly is not!",
+]
+`;
+
+exports[`calculateAll Rome example returns expected 1`] = `
+Array [
+  "More",
+  "more",
+  "omre",
+  "orme",
+  "rome",
+  "rome!",
+  "Rome!",
 ]
 `;
