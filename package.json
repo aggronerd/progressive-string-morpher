@@ -1,6 +1,6 @@
 {
   "name": "progressive-string-morpher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Javascript library for morphing one string into another string. Works especially well for Anagrams.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
