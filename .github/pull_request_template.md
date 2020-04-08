@@ -11,5 +11,5 @@ The author declares that the following are true:
 * [ ] New tests authored where new code was required
 * [ ] All changes are documented sufficiently
 * [ ] Tests ran locally and passed (using `npm run all`)
-* [ ] Version number has been increased
+* [ ] Version numbers have been increased in `package.json` and `package-lock.json`
 * [ ] Code coverage badge changes have been committed
