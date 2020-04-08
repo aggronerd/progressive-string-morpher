@@ -10,9 +10,9 @@ This can then be used for animated text and other uses. Please share your usages
 ## Examples
 
 ```javascript
-const morpher = require('progressive-string-morpher');
+const {morph} = require('progressive-string-morpher');
 
-const transition = morpher.morph("More", "Rome!");
+const transition = morph("More", "Rome!");
 
 do {
     console.log(transition.getCurrentString());
