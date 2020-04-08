@@ -1,16 +1,18 @@
 {
   "name": "progressive-string-morpher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Javascript library for morphing one string into another string. Works especially well for Anagrams.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "prepublish": "tsc",
   "scripts": {
     "test": "jest src/**",
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage && jest-coverage-badges output ./badges",
     "integration-test": "jest integration.test.js",
     "lint": "eslint src/**.ts",
     "build": "tsc",
-    "all": "npm run test && npm run build && npm run lint && npm run integration-test"
+    "all": "npm run test:badges && npm run build && npm run lint && npm run integration-test"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.2.7",
+    "jest-coverage-badges": "^1.1.2",
     "typescript": "^3.8.3"
   }
 }

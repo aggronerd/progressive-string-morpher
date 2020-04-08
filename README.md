@@ -1,4 +1,6 @@
 # String Morphing.
+![](https://github.com/aggronerd/progressive-string-morpher/workflows/Node.js%20package%20CI/badge.svg)
+![](badges/badge-lines.svg)
 
 This was initially used to animate the transition steps between anagrams, however works with other strings as well. It 
 does a [bubble sort](https://en.wikipedia.org/wiki/Bubble_sort) to shuffle the characters around to match the target 
@@ -6,6 +8,7 @@ string. It also does some pre and post processing to support missing characters 
 
 This can then be used for animated text and other uses. Please share your usages with 
 [@aggronerd](https://twitter.com/aggronerd) on Twitter.
+'
 
 ## Examples
 
