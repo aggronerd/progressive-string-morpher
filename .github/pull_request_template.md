@@ -12,3 +12,4 @@ The author declares that the following are true:
 * [ ] All changes are documented sufficiently
 * [ ] Tests ran locally and passed (using `npm run all`)
 * [ ] Version number has been increased
+* [ ] Code coverage badge changes have been committed
